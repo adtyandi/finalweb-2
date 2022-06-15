@@ -1,0 +1,5 @@
+<!--begin::Input-->
+                                        <input class="form-check-input me-3" name="attribute" type="checkbox" value="{{ $item->id }}" id="attribute[]" @foreach ($attribute_tour as $key)
+                                        @if ($item->id == $key->attribute_id) checked @endif
+                                        @endforeach  />
+                                        <!--end::Input-->
