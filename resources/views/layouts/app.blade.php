@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="author" content="Ahmad Mukmin Jamaludin">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>Tracking-App</title>
+  <title>Our Team</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -57,37 +57,15 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Tracking-App</a>
+            <a href="index.html">Website Final</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">T-App</a>
           </div>
           <ul class="sidebar-menu">
             <li class="{{ request()->is(['home']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
-            @can('kode-berkas-list')              
-            <li class="menu-header">Master Data</li>
-            <li class="{{ request()->is(['kode-berkas']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('kode-berkas.index') }}"><i class="fas fa-qrcode"></i> <span>Kode Berkas</span></a></li>
-            @endcan
-            
-            <li class="menu-header">Kredit</li>
-            <li class="nav-item dropdown {{ request()->is(['pengajuan-kredit/create', 'pengajuan-kredit', 'pengajuan-kredit/verifikasi']) ? 'active' : '' }}">
-              <a href="#" class="nav-link has-dropdown"><i class="fas fa-paper-plane"></i><span>Pengajuan</span></a>
-              <ul class="dropdown-menu">
-                @can('pengajuan-kredit-create')
-                <li class="{{ request()->is(['pengajuan-kredit/create']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('pengajuan-kredit.create') }}">Buat Pengajuan</a></li>
-                @endcan
-                @can('pengajuan-kredit-verifikasi')
-                <li class="{{ request()->is(['pengajuan-kredit/verifikasi']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('pengajuan-kredit.verifikasi') }}">Verifikasi Pengajuan</a></li>
-                @endcan
-                @can('pengajuan-kredit-list')                  
-                <li class="{{ request()->is(['pengajuan-kredit']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('pengajuan-kredit.index') }}">Data Pengajuan</a></li>
-                @endcan
-              </ul>
-            </li>
-            @can('manajemen-pengguna-list')              
-            <li class="menu-header">Manajemen Pengguna</li>
-            <li class="{{ request()->is(['manajemen-pengguna']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('manajemen-pengguna.index') }}"><i class="fas fa-users"></i> <span>Manajemen Pengguna</span></a></li>
-            @endcan
+            <li class="menu-header">Member Tim</li>
+            <li class="{{ request()->is(['manajemen-pengguna']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('manajemen-pengguna.index') }}"><i class="fas fa-users"></i> <span>Member Team</span></a></li>
           </ul>
         </aside>
       </div>
@@ -95,7 +73,7 @@
       @yield('content')
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Created By <a href="#">Ahmad Mukmin Jamaludin</a>
+        <div class="bullet"></div> Created By <a href="#">KELOMPOK 4</a>
         </div>
         <div class="footer-right">
           Version 2.1

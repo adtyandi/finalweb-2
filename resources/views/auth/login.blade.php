@@ -69,8 +69,8 @@
           <div class="absolute-bottom-left index-2">
             <div class="text-light p-5 pb-2">
               <div class="mb-5 pb-3">
-                <h1 class="mb-2 display-4 font-weight-bold">Selamat Datang</h1>
-                <h7 class="font-weight-normal text-muted-transparent">Aplikasi Pengajuan Kredit PT BPR Gunung Kawi</h7>
+                <h1 class="mb-2 display-4 font-weight-bold">SELAMAT DATANG</h1>
+                <h7 class="font-weight-normal text-muted-transparent">Jasa Travel by Kelompok 4</h7>
               </div>
             </div>
           </div>

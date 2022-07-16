@@ -34,11 +34,11 @@ Route::middleware('role:admin|customerservice|kabaganalis|staffanalis')->group(f
     Route::delete('/berkas/{id}', [App\Http\Controllers\PengajuanKreditController::class, 'berkas_destroy'])->name('berkas.destroy');
 });
 
-Route::middleware('role:admin')->group(function () {
+// Route::middleware('role:admin')->group(function () {
     Route::post('/kode-berkas/store', [App\Http\Controllers\KodeBerkasController::class, 'store'])->name('kode-berkas.store');
     Route::put('/kode-berkas/{id}', [App\Http\Controllers\KodeBerkasController::class, 'update'])->name('kode-berkas.update');
     Route::delete('/kode-berkas/{id}', [App\Http\Controllers\KodeBerkasController::class, 'destroy'])->name('kode-berkas.destroy');
     Route::delete('/pengajuan-kredit/{id}', [App\Http\Controllers\PengajuanKreditController::class, 'destroy'])->name('pengajuan-kredit.destroy');
     Route::put('/pengajuan-kredit/qrcode/{id}', [App\Http\Controllers\PengajuanKreditController::class, 'update_qrcode'])->name('pengajuan-kredit.qrcode');
     Route::resource('/manajemen-pengguna', App\Http\Controllers\ManajemenUserController::class);
-});
+// });

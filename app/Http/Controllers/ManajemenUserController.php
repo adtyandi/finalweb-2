@@ -44,29 +44,33 @@ class ManajemenUserController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
-            'name' => 'required|unique:users',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'roles' => 'required',
-        );
-
-        $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
-            $messages = $validator->messages();
-            $errors = $messages->all();
-            return response()->json(["status" => "error", "message" => $errors[0]], 200);
-        };
-
-        $data = $request->except('password');
-        $data['password'] = bcrypt($request->password);
-        $data['email_verified_at'] = now();
-
-        $user = User::create($data);
-        $user->assignRole($request->roles);
-        return response()->json(["status" => "success", "message" => 'User berhasil ditambahkan!'], 200);
+        try {
+            $rules = [
+                'name' => 'required|unique:users',
+                'username' => 'required',
+                'email' => 'required',
+                'password' => 'required',
+            ];
+    
+            $validator = Validator::make($request->all(), $rules);
+    
+            if ($validator->fails()) {
+                $messages = $validator->messages();
+                $errors = $messages->all();
+                return response()->json(["status" => "error", "message" => $errors[0]], 200);
+            };
+    
+            $data = $request->all();
+            $data['password'] = bcrypt($request->password);
+            $data['email_verified_at'] = now();
+    
+            $user = User::create($data);
+            $user->assignRole($request->roles);
+            return response()->json(["status" => "success", "message" => 'User berhasil ditambahkan!'], 200);
+        }catch(err) {
+            return err.getMessage();
+        }
+        
     }
 
     /**

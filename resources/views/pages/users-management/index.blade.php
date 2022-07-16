@@ -5,10 +5,10 @@
 <div class="main-content">
 <section class="section">
     <div class="section-header">
-        <h1>Manajemen Pengguna</h1>
+        <h1>Manajemen User</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></div>
-            <div class="breadcrumb-item active">Manajemen Pengguna</div>
+            <div class="breadcrumb-item active">Manajemen User</div>
         </div>
     </div>
 
@@ -39,9 +39,7 @@
                                     <th>Nama Pengguna</th>
                                     <th>Email</th>
                                     <th>Role</th>
-                                    @canany('manajemen-pengguna-edit', 'manajemen-pengguna-delete')
                                     <th>Aksi</th>                                    
-                                    @endcanany
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,19 +49,11 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->username }}</td>
                                         <td>{{ $item->email }}</td>
-                                        @foreach ($item->roles as $key)
-                                            <td>{{ $key->name }}</td>                                            
-                                        @endforeach
-                                        @canany('manajemen-pengguna-edit', 'manajemen-pengguna-delete')
+                                        <td>{{ $item->name }}</td>                                            
                                         <td>
-                                            @can('manajemen-pengguna-edit')                                                    
                                             <a href="#" type="button" onclick="edit({{ json_encode($item) }})" class="btn btn-icon btn-warning" data-toggle="modal" data-target="#manajemen-pengguna"><i class="fas fa-edit"></i></a>
-                                            @endcan
-                                            @can('manajemen-pengguna-delete')  
                                             <a href="#" type="button" data-toggle="modal" data-target="#modal-hapus{{ $item->id }}" class="btn btn-icon btn-danger" data-toggle="modal" data-target="#hapus-kode-berkas"><i class="fas fa-trash-alt"></i></a>                                            
-                                            @endcan
                                         </td>                                   
-                                        @endcanany
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -118,12 +108,13 @@
                     <input class="form-control" type="email" name="email" id="email" placeholder="Email Pengguna">
                 </div>
                 <div class="form-group">
+                    <label for="exampleFormControlInput1">Biodata</label>
+                    <textarea name="biodata" id="biodata" class="form-control" cols="30" rows="30"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="exampleFormControlInput1">Role</label>
                     <select name="roles" id="roles" class="form-control">
                         <option value="admin">Admin</option>
-                        <option value="customerservice">Customer Service</option>
-                        <option value="kabaganalis">Kabag Analis</option>
-                        <option value="staffanalis">Staff Analis</option>
                         <option value="nasabah">Nasabah</option>
                     </select>
                 </div>
@@ -194,12 +185,14 @@
         var email = $('#email').val();
         var roles = $("#roles").val();
         var password = $('#password').val();
+        var biodata = $('#biodata').val();
         var form_data = new FormData();
-        form_data.append('_token', '{{ csrf_token() }}');
+        // form_data.append('_token', '{{ csrf_token() }}');
         form_data.append('name', name);
         form_data.append('username', username);
         form_data.append('email', email);
-        form_data.append('roles', roles);
+        form_data.append('biodata', biodata);
+        // form_data.append('roles', roles);
         form_data.append('password', password);
         $.ajax({
             type: "POST",
@@ -225,9 +218,10 @@
                     });
                 }
             }, error: function(error) {
+                console.log(error);
                 iziToast.error({
                     title: 'Upss..',
-                    message: 'Ada yang tidak beres!',
+                    message: error,
                     position: 'bottomRight',
                 });
             }
