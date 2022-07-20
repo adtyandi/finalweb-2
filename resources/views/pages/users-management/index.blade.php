@@ -5,10 +5,10 @@
 <div class="main-content">
 <section class="section">
     <div class="section-header">
-        <h1>Manajemen User</h1>
+        <h1>Manajemen Team</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></div>
-            <div class="breadcrumb-item active">Manajemen User</div>
+            <div class="breadcrumb-item active">Manajemen Team</div>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><a href="#" type="button" onclick="add()" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#manajemen-pengguna"><i class="fas fa-plus"></i> Tambah Pengguna</a></h4>
+                        <h4><a href="#" type="button" onclick="add()" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#manajemen-pengguna"><i class="fas fa-plus"></i> Tambah Anggota</a></h4>
                         <div class="card-header-form">
                             <form action="{{ route('manajemen-pengguna.index') }}" method="GET">
                                 <div class="input-group">
@@ -38,7 +38,6 @@
                                     <th>Nama Lengkap</th>
                                     <th>Nama Pengguna</th>
                                     <th>Email</th>
-                                    <th>Role</th>
                                     <th>Aksi</th>                                    
                                 </tr>
                             </thead>
@@ -48,8 +47,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->username }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->name }}</td>                                            
+                                        <td>{{ $item->email }}</td>                                           
                                         <td>
                                             <a href="#" type="button" onclick="edit({{ json_encode($item) }})" class="btn btn-icon btn-warning" data-toggle="modal" data-target="#manajemen-pengguna"><i class="fas fa-edit"></i></a>
                                             <a href="#" type="button" data-toggle="modal" data-target="#modal-hapus{{ $item->id }}" class="btn btn-icon btn-danger" data-toggle="modal" data-target="#hapus-kode-berkas"><i class="fas fa-trash-alt"></i></a>                                            

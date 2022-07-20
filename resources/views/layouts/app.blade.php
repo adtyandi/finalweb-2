@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="author" content="Ahmad Mukmin Jamaludin">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>Our Team</title>
+  <title>Index</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -52,7 +52,7 @@
               </form>
             </div>
           </li>
-        </ul>
+         </ul>
       </nav>
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
@@ -60,7 +60,7 @@
             <a href="index.html">Website Final</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">T-App</a>
+            <a href="index.html">Grup 4</a>
           </div>
           <ul class="sidebar-menu">
             <li class="{{ request()->is(['home']) ? 'active' : '' }}"><a class="nav-link" href="{{ route('home') }}"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>

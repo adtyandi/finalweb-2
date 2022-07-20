@@ -43,7 +43,7 @@
     </div>
     @endrole
 
-    @role('Andi')
+    @role('nasabah')
     <div class="row">
         <div class="col-12 mb-4">
             <div class="hero bg-primary text-white">
@@ -51,9 +51,9 @@
                     <h2>Welcome Back, {{ Auth::user()->username }}!</h2>
                     <p class="lead">Web Travel Group 4</p>
                     <div class="mt-4">
-                        <a href="{{ route('pengajuan-kredit.create') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-paper-plane"></i> Beli tiket sekarang!</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-paper-plane"></i> Beli tiket sekarang!</a>
                     </div>
-                </div>
+                 </div>
             </div>
         </div>
     </div>
